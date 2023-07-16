@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-
+#include <string.h>
 typedef enum _direction
 {
 	NORTH, EAST, SOUTH, WEST
@@ -26,7 +26,7 @@ typedef struct _snake
 }Snake;
 
 int SnakeInit();
-int SnakeMove();
+int SnakeMove(Direction dir);
 int SnakeAdd();
 void SnakeSetDir(Direction dir);
 Snake* SnakeGetHead();
