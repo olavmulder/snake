@@ -3,7 +3,7 @@
 
 Direction MovingReadInput(Direction dir)
 {
-	char c;
+	int c;
 	c = GetCharWithTimeout(SPEED);
 	switch(c)
 	{
@@ -26,7 +26,7 @@ Direction MovingReadInput(Direction dir)
 	return (0);
 }
 
-int GetcharWithTimeout(int timeoutMillis)
+int GetCharWithTimeout(int timeoutMillis)
 {
     fd_set rfds;
     struct timeval tv;
@@ -46,6 +46,6 @@ int GetcharWithTimeout(int timeoutMillis)
         // Timeout occurred
         return EOF;
     } else {
-        return getchar();
+        return (getchar());
     }
 }

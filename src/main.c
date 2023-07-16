@@ -1,6 +1,8 @@
 #include "../inc/field.h"
-#include "../inc/snake.h"
+#include "../inc/moving.h"
 #include <assert.h>
+#include <unistd.h>
+#include <fcntl.h>
 /**
  *
  * make field
@@ -27,6 +29,18 @@ int main(void)
 	}
 
 	return (0);
+}
+void test_moving()
+{
+	int fd = open("test_moving.txt", O_RDONLY);
+	if (fd == -1) {
+		perror("Error opening test_input.txt");
+		exit(1);
+	}
+	dup2(fd, STDIN_FILENO);
+	Direction dir = EAST;
+	Direction dirNew = MovingReadInput(dir);
+	assert(dir != dirNew);
 }
 void test_snake_init()
 {
@@ -76,7 +90,7 @@ void test()
 	test_snake_set_dir();
 	test_snake_update_dir();
 	test_snake_move();
-
+	test_moving();
 	printf("%s completed\n", __func__);
 	exit(0);
 }

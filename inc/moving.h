@@ -14,7 +14,7 @@
 #include "snake.h"
 
 Direction MovingReadInput(Direction dir);
-int GetcharWithTimeout(int timeoutMillis);
+int GetCharWithTimeout(int timeoutMillis);
 
 
 
