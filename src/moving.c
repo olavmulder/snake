@@ -22,8 +22,11 @@ Direction MovingReadInput(Direction dir)
 	default:
 		break;
 	}
-	SnakeMove(dir);
-	return (0);
+	if(SnakeMove(dir) != 0)
+	{
+		fprintf(stdout, "SnakeMove error\n");
+	}
+	return (dir);
 }
 
 int GetCharWithTimeout(int timeoutMillis)

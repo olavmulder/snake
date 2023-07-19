@@ -30,6 +30,18 @@ int SnakeInit()
 	snake_till->dir = snake_till->prev->dir;
 	return (0);
 }
+void SnakeSetCharArray(char* arr)
+{
+	const char extra_width = 3;
+	Snake *ptr = snake_head;
+	while(ptr != NULL)
+	{
+		//arr[ptr->h][ptr->w+1] = 'x';
+		*(arr+((ptr->h+1)*(width+extra_width) + ptr->w+1)) = '0';
+		ptr = ptr->next;
+	}
+}
+
 void SnakeSetDir(Direction dir)
 {
 	snake_head->dir = dir;
@@ -66,8 +78,6 @@ int SnakeMove(Direction dir)
 		ptr = ptr->next;
 	}
 	SnakeUpdateDir();
-	while(ptr)
-	printf("\n\n");
 	return (0);
 }
 
@@ -157,13 +167,13 @@ int SnakeUpdatePosition(Direction dir, Snake* new)
 	switch(dir)
 		{
 		case NORTH:
-			new->h++;
+			new->h--;
 			break;
 		case EAST:
 			new->w++;
 			break;
 		case SOUTH:
-			new->h--;
+			new->h++;
 			break;
 		case WEST:
 			new->w--;

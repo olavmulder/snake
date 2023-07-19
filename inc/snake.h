@@ -25,8 +25,14 @@ typedef struct _snake
 	struct _snake *next;
 }Snake;
 
+/*from field.c*/
+extern uint8_t width;
+extern uint8_t height;
+
+
 int SnakeInit();
 int SnakeMove(Direction dir);
+void SnakeSetCharArray(char* arr);
 int SnakeAdd();
 void SnakeSetDir(Direction dir);
 Snake* SnakeGetHead();
