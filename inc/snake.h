@@ -7,10 +7,7 @@
 
 #ifndef INC_SNAKE_H_
 #define INC_SNAKE_H_
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
+#include "apple.h"
 
 typedef enum _direction
 {
@@ -26,9 +23,7 @@ typedef struct _snake
 	struct _snake *next;
 }Snake;
 
-/*from field.c*/
-extern uint8_t width;
-extern uint8_t height;
+
 
 extern void ExitGame();
 

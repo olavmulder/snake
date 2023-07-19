@@ -77,6 +77,14 @@ int SnakeMove(Direction dir)
 		}
 		ptr = ptr->next;
 	}
+	//apple handling
+	int app_w, app_h;
+	AppleGetLocation(&app_w, &app_h);
+	if(snake_head->w == app_w && snake_head->h == app_h)
+	{
+		AppleIsFound();
+	}
+
 	SnakeUpdateDir();
 	return (0);
 }
@@ -145,9 +153,10 @@ Direction SnakeGetOpositeDirection(Direction dir)
 		return (EAST);
 		break;
 	default:
-		exit(0);
+		ExitGame();
+		break;
 	}
-
+	return (dir);
 }
 int SnakeIsPositionTaken(int w, int h)
 {

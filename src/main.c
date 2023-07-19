@@ -48,7 +48,7 @@ void CheckGameOver(int h, int w)
 void ExitGame()
 {
     endwin(); // Clean up the window
-    printf("Game Over!\n");
+    printf("score: %d\nGame Over!\n", GetScore());
     exit(0);
 }
 void play(int h, int w)

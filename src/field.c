@@ -41,6 +41,7 @@ int FieldSetCharArray(char *arr)
 	*(arr+( (height+2) * (width+extra_width))-1) = '\0';
 	return (0);
 }
+
 int FieldDrawAll()
 {
 
@@ -58,6 +59,7 @@ int FieldDrawAll()
 		return (-1);
 	}
 	SnakeSetCharArray(&arr[0]);
+	AppleDraw(&arr[0]);
 	mvprintw(0,0, "%s", arr);
 	fflush(stdout);
 	return (0);

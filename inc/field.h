@@ -1,12 +1,12 @@
 /*
  * field.h
  *
- *  Created on: Jul 14, 2023
- *      Author: olav
+ *  created on: jul 14, 2023
+ *      author: olav
  */
 
-#ifndef FIELD_H_
-#define FIELD_H_
+#ifndef field_h_
+#define field_h_
 
 #include <stdlib.h>
 #include <stdint.h>
@@ -26,4 +26,4 @@ void FieldSetSize(uint8_t w, uint8_t h);
 int FieldSetCharArray(char *arr);
 
 
-#endif /* FIELD_H_ */
+#endif /* field_h_ */
