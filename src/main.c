@@ -14,6 +14,8 @@
 
 void test();
 void play();
+void ExitGame();
+
 int main(void)
 {
 	//test();
@@ -34,14 +36,20 @@ int main(void)
 void CheckGameOver(int h, int w)
 {
 	Snake *ptr = SnakeGetHead();
-	if(ptr->h == 0 || ptr->w == 0)
+	if(ptr->h < 0 || ptr->w < 0)
 	{
-		exit(0);
+		ExitGame();
 	}
-	if(ptr->w >= w || ptr->h >= h )
+	if(ptr->w > w || ptr->h > h )
 	{
-		exit(0);
+		ExitGame();
 	}
+}
+void ExitGame()
+{
+    endwin(); // Clean up the window
+    printf("Game Over!\n");
+    exit(0);
 }
 void play(int h, int w)
 {
@@ -55,7 +63,7 @@ void play(int h, int w)
 		usleep(500 * 1000);
 		curDir = MovingReadInput(curDir);
 		SnakeMove(curDir);
-		//CheckGameOver(h, w);
+		CheckGameOver(h, w);
 	}
 }
 

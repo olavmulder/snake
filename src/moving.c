@@ -1,8 +1,9 @@
 #include "../inc/moving.h"
 #define SPEED 200
 
-Direction MovingReadInput(Direction dir)
+Direction MovingReadInput(Direction oldDir)
 {
+	Direction dir;
 	int c;
 	c = GetCharWithTimeout(SPEED);
 	switch(c)
@@ -20,7 +21,12 @@ Direction MovingReadInput(Direction dir)
 		dir = WEST;
 		break;
 	default:
+		dir = oldDir;
 		break;
+	}
+	if(dir == SnakeGetOpositeDirection(oldDir))
+	{
+		ExitGame();
 	}
 	if(SnakeMove(dir) != 0)
 	{

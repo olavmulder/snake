@@ -149,7 +149,7 @@ Direction SnakeGetOpositeDirection(Direction dir)
 	}
 
 }
-int SnakeIsPositionTaken(uint8_t w, uint8_t h)
+int SnakeIsPositionTaken(int w, int h)
 {
 	Snake *ptr = snake_head;
 	while(ptr != NULL)
